@@ -1,0 +1,365 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+
+        <meta charset="UTF-8"/>
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Formulario de autenticación"/>
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class"/>
+        <meta name="author" content="abs"/>
+        <!-- <link rel="shortcut icon" href="../favicon.ico"> -->
+        <!-- <link rel="stylesheet" type="text/css" -->
+              <!-- href="/< ?php echo $this->data['baseurlpath']; ?>resources/css/style.css"/> -->
+
+
+        <title>Universidad ULEAM</title>
+
+       <!--<link rel="icon" type="image/icon" href="/< ?php /* echo $this->data['baseurlpath']; */ ?>resources/icons/favicon.ico" />-->
+
+            
+
+        <meta name="robots" content="noindex, nofollow" />
+
+    </head>
+            <body  onload="SimpleSAML_focus('username');">
+
+        <div id="wrap">
+
+            <div id="content">
+
+
+
+            <!DOCTYPE html>
+<html class="transition-navbar-scroll top-navbar-xlarge bottom-footer" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <title>Learning</title>
+    <!-- Compressed Vendor BUNDLE
+    Includes vendor (3rd party) styling such as the customized Bootstrap and other 3rd party libraries used for the current theme/module -->
+    <link href="/auth/resources/css/vendor.min.css" rel="stylesheet">
+    <!-- Compressed Theme BUNDLE
+Note: The bundle includes all the custom styling required for the current theme, however
+it was tweaked for the current theme/module and does NOT include ALL of the standalone modules;
+The bundle was generated using modern frontend development tools that are provided with the package
+To learn more about the development process, please refer to the documentation. -->
+    <!-- <link href="css/theme.bundle.min.css" rel="stylesheet"> -->
+    <!-- Compressed Theme CORE
+This variant is to be used when loading the separate styling modules -->
+    <link href="/auth/resources/css/theme-core.min.css" rel="stylesheet">
+    <!-- Standalone Modules
+    As a convenience, we provide the entire UI framework broke down in separate modules
+    Some of the standalone modules may have not been used with the current theme/module
+    but ALL modules are 100% compatible -->
+    <link href="/auth/resources/css/module-essentials.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-material.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-layout.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-sidebar.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-sidebar-skins.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-navbar.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-messages.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-carousel-slick.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-charts.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-maps.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-colors-alerts.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-colors-background.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-colors-buttons.min.css" rel="stylesheet" />
+    <link href="/auth/resources/css/module-colors-text.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+/**
+* Get the user IP throught the webkitRTCPeerConnection
+* @param onNewIP {Function} listener function to expose the IP locally
+* @return undefined
+*/
+function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
+   //compatibility for firefox and chrome
+   var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+   var pc = new myPeerConnection({
+       iceServers: []
+   }),
+   noop = function() {},
+   localIPs = {},
+   ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
+   key;
+
+   function iterateIP(ip) {
+       if (!localIPs[ip]) onNewIP(ip);
+       localIPs[ip] = true;
+   }
+
+    //create a bogus data channel
+   pc.createDataChannel("");
+
+   // create offer and set local description
+   pc.createOffer().then(function(sdp) {
+       sdp.sdp.split('\n').forEach(function(line) {
+           if (line.indexOf('candidate') < 0) return;
+           line.match(ipRegex).forEach(iterateIP);
+       });
+       
+       pc.setLocalDescription(sdp, noop, noop);
+   }).catch(function(reason) {
+       // An error occurred, so handle the failure to connect
+   });
+
+   //listen for candidate events
+   pc.onicecandidate = function(ice) {
+       if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
+       ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
+   };
+}
+
+
+function getIPpublica(json) {
+  document.principal.ipreal.value+= json.ip;
+}
+
+</script>
+
+</head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top navbar-size-large navbar-size-xlarge paper-shadow" data-z="0" style='background-image: url("/auth/resources/images/back.jpg");' data-animated role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav">
+           <!-- <ul class="nav navbar-nav navbar-nav-margin-left">-->
+                
+            <a href="http://www.uleam.edu.ec/" style="background: transparent; color:#FFF" target="_blank"><img src="/auth/resources/images/logoUleamReporte.png"  height="80" width="350" aligng = "right" style="padding: 5px"/></a>
+
+
+           <!-- </ul>-->
+            <div class="navbar-right">
+                <form name = "principal" method="POST">
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-control-material static">
+                                <input class="form-control" style="color:#FFF" name="username" required="required" id="exampleInputFirstName" value=""  type="text"><span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                                <label for="exampleInputFirstName" style="color:#FFF">Usuario</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-control-material static">
+                                <input class="form-control" style="color:#FFF"  name="password" required="required" id="exampleInputLastName"  type="password"><span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                                <label for="exampleInputLastName" style="color:#FFF">Clave</label>
+                            </div>
+                        </div>
+                        
+                                <input type="hidden" id="ipreal" name='ipreal' value=""/>
+
+                        <div class="col-md-2">
+                            <button class="navbar-btn btn btn-primary btn-sm btn-green-500"><h6 style="color:white;">Entrar <i class="fa fa-fw fa-unlock-alt"></i></h6></button>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="http://bit.ly/2AprtBs=" target="_blank"><h6 style="color:white; align:right;">    ¿Olvidó su contraseña?</h6></a>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="AuthState" value="_78efb85f1a0b75f4f96ff8b0f8d743287eaa62936f:https://aulavirtual.uleam.edu.ec/auth/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Faulavirtual.uleam.edu.ec&amp;cookieTime=1563720500&amp;RelayState=https%3A%2F%2Faulavirtual.uleam.edu.ec%2Fxisce%2Fprincipal%2F" />                </form>
+
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div>
+<div class="parallax overflow-hidden bg-red-400 page-section third     hidden">
+    <div class="container parallax-layer" data-opacity="true">
+        <div class="media v-middle">
+            <div class="media-body">
+                <h3 class="text-white margin-v-0 text-center">
+                    </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div align="center">
+<br></br>
+    <!-- <iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/ffc68014-b21d-4168-a5f9-8757c8bda978?autoplay=false&showinfo=true" frameborder="0" allowfullscreen ></iframe> -->
+        <div class="btn btn-green-500 btn-lg paper-shadow"> <a data-hover-z="2" href="https://web.microsoftstream.com/embed/video/36e881dd-edfa-4272-ae6a-aa91beb409d0" target="_blank"><h5 style="color: white;">Ver tutorial matrícula <br> (con correo institucional) </h5></a> </div>
+        <div class="btn btn-green-500 btn-lg paper-shadow"> <a data-hover-z="2" href="https://uleam.sharepoint.com/:b:/s/ucci-desarrollo-o365g/EYm915jodDRNlkGL1j6X72oBciCNP8Fhj7w7ilijE5kl7w?e=tVEVUT" target="_blank"><h5 style="color: white;">Ver cronograma matrícula <br>2019 - 1</h5></a> </div>
+        <div class="btn btn-green-500 btn-lg paper-shadow"> <a data-hover-z="2" href="https://uleam.sharepoint.com/:b:/s/ucci-desarrollo-o365g/ERKVCwGwmk9BobHEFTZt_tkBD588SxyAKdzbqsyvXgcJcw?e=fPNkrT" target="_blank"> <h5 style="color: white;">Ver carreras por campos  <br> y aranceles 2019 - 1</h5></a> </div>
+       <!-- <a class="btn btn-green-500 btn-lg paper-shadow" data-hover-z="2" href="https://uleam-my.sharepoint.com/:x:/g/personal/incidencias_ucci_live_uleam_edu_ec/EZT5ytfunIBOngfMO6qGro0Bs5GfjWkm097If_Obk2XPBg?e=cK60by">Listado de Estudiantes Designados a <br> Juntas Receptoras del Voto 2019 </a> -->
+ 
+    <div class="parallax-layer overlay overlay-full overlay-bg-white bg-transparent" data-speed="8" data-opacity="true">
+        <div class="v-center" >
+            <div  data-z="1">
+            <br>
+                <div class="visualLinkContent" style="text-align: center;"><table class="visualLinkTable" role="group" style="border: 1px solid #D2D2D2; margin: auto; width: 600px;" aria-label="POLÍTICAS PARA PROCESO DE MATRICULACIÓN 2019(1)" border="0" cellspacing="0" cellpadding="0"><tr class="visualLinkImageRow" aria-hidden="true"><td align="center"><a href="https://sway.office.com/QmMcRXhBXzaLaJnD?ref=email" target="_blank" rel="nofollow noreferrer"><img class="visualLinkImage" src="https://sway.office.com//sway/v1.0/QmMcRXhBXzaLaJnD/thumbnailImage?imageId=-Vn_CYM1SBT8fb&amp;width=600&amp;height=180&amp;isPreview=true"></a></td></tr><tr class="visualLinkTitleRow" aria-labelledby="visualLinkTitle"><td class="visualLinkTitleCell" aria-hidden="true" style="padding: 13px 20px 0px 20px; text-align: center; vertical-align: top;"><a style="text-decoration: none; text-underline: none;" href="https://sway.office.com/QmMcRXhBXzaLaJnD?ref=email" target="_blank" rel="nofollow noreferrer"><span class="visualLinkTitle" style="color: #424242; font-size: 21px; line-height: 28px; font-family: 'Segoe UI Semilight', 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif;           text-decoration: none; text-underline: none;" dir="ltr">POL&Iacute;TICAS PARA PROCESO DE MATRICULACI&Oacute;N 2019(1)</span></a></td></tr><tr class="visualLinkDescriptionRow" aria-labelledby="visualLinkDescription"><td class="visualLinkDescriptionCell" aria-hidden="true" style="padding: 13px 20px 0px 20px; vertical-align: top; text-align: left;"><span class="visualLinkDescription" style="color: red; font-size: 20px; line-height: 15px; font-family: 'Segoe UI Regular', 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif;" dir="ltr"> Todos los usuarios del aula virtual se DESACTIVAR&Aacute;N el domingo 31 de marzo, y... </span></td></tr><tr class="visualLinkButtonRow"><td align="center" style="padding: 20px; border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0;"><table style="border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; margin: auto;" border="0" cellspacing="0" cellpadding="0"><tr><td align="center" style="border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; background-color: #008272; word-break: break-word; word-wrap: break-word; padding: 3px 20px;"><a style="display: block; border-width: 5px; font-family: 'Segoe UI Semilight', 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif;             -webkit-font-smoothing: antialiased; font-size: 20px; line-height: 20px; text-align: center; background-color: #008272;             border-style: solid; border-color: #008272; text-decoration: none; text-underline: none;" href="https://sway.office.com/QmMcRXhBXzaLaJnD?ref=email" target="_blank" rel="nofollow noreferrer"><span style="text-decoration: none; text-underline: none; color: white;"> Inf&oacute;rmate !!!...</span></a></td></tr></table></td></tr></table></div>
+            </div>
+            <img src="/auth/resources/images/leam_logo.png"  alt="uleam" height="180"/><br/>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="page-section-heading">
+        <h2 class="text-display-1">¿Qui&eacute;nes somos?</h2>
+    </div>
+    <div class="row" data-toggle="gridalicious">
+        <div class="media">
+            <div class="media-left padding-none">
+                <div class="bg-green-300 text-white">
+                    <div class="panel-body">
+                        <i class="fa fa-film fa-2x fa-fw"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="media-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-headline">MISIÓN</div>
+                        <p align= "justify">Formar profesionales competentes y emprendedores desde lo académico, la investigación, y la vinculación, que contribuyan a mejorar la calidad de vida de la sociedad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left padding-none">
+                <div class="bg-purple-300 text-white">
+                    <div class="panel-body">
+                        <i class="fa fa-life-bouy fa-2x fa-fw"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="media-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-headline">VISIÓN</div>
+                        <p  align= "justify">Ser un referente nacional e internacional de Institución de Educación Superior que contribuye al desarrollo social, cultural y productivo con profesionales éticos, creativos, cualificados y con sentido de pertinencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left padding-none">
+                <div class="bg-orange-400 text-white">
+                    <div class="panel-body">
+                        <i class="fa fa-user fa-2x fa-fw"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="media-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-headline">¿QUIÉNES SOMOS?</div>
+                        <p align= "justify">Somos una universidad de carácter humanista, con una clara concepción laica en materia educativa que procura la más exigente libertad de enseñanza y cátedra, entendiendo al estudiante como el gran actor de su proceso de formación y al docente como el gran facilitador del futuro profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="modal grow modal-overlay modal-backdrop-body fade" id="modal-overlay-signup">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <div class="modal-dialog">
+        <div class="v-cell">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="wizard-container wizard-1" id="wizard-demo-1">
+                        <form action="#" data-toggle="wizard" class="max-width-400 h-center">
+                            <fieldset class="step relative paper-shadow" data-z="2">
+                                <div class="page-section-heading">
+                                    <h2 class="text-h3 margin-v-0">Datos personales</h2>
+                                    <h3 class="text-h4 margin-v-10 text-grey-400">Tus datos personales est&aacute;n a salvo.</h3>
+                                </div>
+                                <div class="form-group form-control-material static">
+                                    <input class="form-control" type="text" id="wiz-fname"/>
+                                    <label for="wiz-fname">Nombres:</label>
+                                </div>
+                                <div class="form-group form-control-material static">
+                                    <input class="form-control" type="tel" id="wiz-lname" />
+                                    <label for="wiz-lname">Apellidos:</label>
+                                </div>
+                                <div class="form-group form-control-material static">
+                                    <input class="form-control" type="phone" id="wiz-phone"/>
+                                    <label for="wiz-phone">Tel&eacute;fono:</label>
+                                </div>
+                                <div class="form-group form-control-material static">
+                                    <input class="form-control" type="email" id="wiz-phone" />
+                                    <label for="wiz-phone">Email:</label>
+                                </div>
+                                <div class="form-group static">
+                                    <label for="wiz-address">Mensaje:</label>
+                                    <textarea rows="5" class="form-control" id="wiz-address"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 text-right">
+                                        <button type="button" class="wiz-step btn btn-primary" data-target="0">Enviar</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <h4 class="text-headline text-light">LINKS DE INTERÉS</h4>
+                <ul class="list-unstyled">
+                    <li><a href="http://www.uleam.edu.ec/" target="_blank">Página Web ULEAM</a></li>
+                    <li><a href="https://outlook.office365.com/live.uleam.edu.ec" target="_blank">Correo Estudiantil</a></li>
+                    <li><a href="https://portal.office.com/" target="_blank">Office 365</a></li>
+                    <li><a href="http://www.viceacademico.uleam.edu.ec/" target="_blank">Vicerrectorado Académico</a></li>
+                    <li><a href="http://www.uleam.edu.ec/facultades/" target="_blank">Unidades Académicas</a></li>
+                    <li><a href="http://www.uleam.edu.ec/contactos/" target="_blank">Contactos</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <h4 class="text-headline text-light">ÁREA ESTUDIANTIL</h4>
+                <ul class="list-unstyled">
+                    <li><a href="http://observatoriograduados.uleam.edu.ec/" target="_blank">Observatorio de Graduados</a></li>
+                    <li><a href="http://departamentos.uleam.edu.ec/vinculacion-colectividad/" target="_blank">Vinculación con la Colectividad</a></li>
+					<li><a href="http://biblio.uleam.edu.ec/" target="_blank">Catálogo de Libros / Biblioteca</a></li>
+					<li><a href="http://departamentos.uleam.edu.ec/alfarotv/" target="_blank">Alfaro TV</a></li>
+                    <li><a href="http://departamentos.uleam.edu.ec/departamento-relaciones-internacionales/" target="_blank">Relaciones y Cooperación Internacional</a></li>
+                    <li><a href="http://departamentos.uleam.edu.ec/bienestar-estudiantil/" target="_blank">Bienestar Universitario</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h4 class="text-headline text-light">REDES SOCIALES</h4>
+                <br/>
+                <p>
+                    <a href="http://fb.com/UleamEc" target="_blank" class="btn btn-indigo-500 btn-circle"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/UleamEcuador" target="_blank" class="btn btn-blue-500 btn-circle"><i class="fa fa-twitter"></i></a>
+                </p>
+                <p class="text-subhead">
+                    &copy; 2016 ULEAM - ECUADOR.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <strong>MANTA - MANABÍ - ECUADOR</strong>  &copy; Copyright 2016
